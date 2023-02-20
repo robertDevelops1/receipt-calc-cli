@@ -1,0 +1,18 @@
+User {
+    id:int
+    name:str
+}
+
+item {
+    id:int
+    name:str
+    store:str
+    tax:float
+    totalCost:float
+    costPerUser:float
+}
+
+assignments {
+    user1:int
+    user2:int
+}
