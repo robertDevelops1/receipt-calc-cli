@@ -16,3 +16,21 @@ assignments {
     user1:int
     user2:int
 }
+
+inputs:
+    h - help
+    vu - view all users
+    vi - view all items
+    va - view all assignments
+    au - add user
+    ai - add item
+    aa - assign item to user
+    summary - view everything
+
+
+
+
+user input - cli 
+default tax option
+type checking - verify correct inputs
+csv support - import and process csv data

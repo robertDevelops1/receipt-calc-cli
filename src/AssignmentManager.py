@@ -7,7 +7,7 @@ class AssignmentManager:
 
     def __init__(self):
         """creates an empty dictionary 
-            key: userId
+            key: assignment code
             value: Assignment
         """        
         self.assignments = {}
