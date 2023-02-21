@@ -1,27 +1,39 @@
-class CLIHelper:
 
-    def printHelp():
-        """    
-        vu - view all users
-        vi - view all items
-        va - view all assignments
-        au - add user
-        ai - add item
-        aa - assign item to user
-        summary - view everything
-        h - help
-        """        
-        string = "Available Commands\n" + "h - help\n" + "vu - view all users\n" + "vi - view all items\n" + "va - view all assignments\n" + "au - add user\n" + "ai - add item\n" + "aa - assign item to user\n" + "summary - view everything"
-        print(string)
+def printProgramGreeting():
+    title = """
+            ██████╗ ███████╗ ██████╗███████╗██╗██████╗ ████████╗     ██████╗ █████╗ ██╗      ██████╗    ██╗   ██╗ ██╗    ██████╗  ██████╗ 
+            ██╔══██╗██╔════╝██╔════╝██╔════╝██║██╔══██╗╚══██╔══╝    ██╔════╝██╔══██╗██║     ██╔════╝    ██║   ██║███║   ██╔═████╗██╔═████╗
+            ██████╔╝█████╗  ██║     █████╗  ██║██████╔╝   ██║       ██║     ███████║██║     ██║         ██║   ██║╚██║   ██║██╔██║██║██╔██║
+            ██╔══██╗██╔══╝  ██║     ██╔══╝  ██║██╔═══╝    ██║       ██║     ██╔══██║██║     ██║         ╚██╗ ██╔╝ ██║   ████╔╝██║████╔╝██║
+            ██║  ██║███████╗╚██████╗███████╗██║██║        ██║       ╚██████╗██║  ██║███████╗╚██████╗     ╚████╔╝  ██║██╗╚██████╔╝╚██████╔╝
+            ╚═╝  ╚═╝╚══════╝ ╚═════╝╚══════╝╚═╝╚═╝        ╚═╝        ╚═════╝╚═╝  ╚═╝╚══════╝ ╚═════╝      ╚═══╝   ╚═╝╚═╝ ╚═════╝  ╚═════╝                                                                                             
+            \n"""
+    print(title)
+    printHelp()
 
-    def printUsers():
-        pass
-    
-    def printItems():
-        pass
+def printHelp():
+    """    
+    1) - view all users
+    2) - view all items
+    3) - view all assignments
+    4) - add user
+    5) - add item
+    6) - assign item to user
+    0) - view everything
+    h) - help
+    q) - close program
+    """        
+    string = "Available Commands\n" + "1) - view all users\n" + "2) - view all items\n" + "3) - view all assignments\n" + "4) - add user\n" + "5) - add item\n" + "6) - assign item to user\n" + "0) - view everything\n" + "h) - help\n" + "q) - quit program\n"
+    print(string)
 
-    def printAssignments():
-        pass
+def printUsers():
+    pass
 
-    def printSummary():
-        pass
+def printItems():
+    pass
+
+def printAssignments():
+    pass
+
+def printSummary():
+    pass
