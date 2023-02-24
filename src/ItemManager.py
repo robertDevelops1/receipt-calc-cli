@@ -3,31 +3,20 @@ import Item
 class ItemManager:
 
     def __init__(self):
-        """creates an empty dictionary 
-            key: itemId
-            value: cost per user
-        """        
         self.items = {}
 
     def getItems(self):
         return self.items
 
-    def addItem(self,item:Item):
+    def addItem(self, item:Item):
         itemId = item.getId()
-        itemCost = item.getTotalCost()
         if itemId in self.items:
-            numberOfUsers = round(itemCost / self.items[itemId]) + 1        # +1 user
-            newCostPerUser = round((itemCost / numberOfUsers),2)
-            self.items[itemId] = newCostPerUser
+            print("Item registered already")
         else:
-            self.items[itemId] = itemCost       #cost per user of total cost
-
+            self.items[itemId] = item
+            return itemId
+        
     def removeItem(self,item:Item):
         itemId = item.getId()
-        itemCost = item.getTotalCost()
-        if itemId in self.items:
-            numberOfUsers = round(itemCost / self.items[itemId]) - 1        # -1 user
-            newCostPerUser = round((itemCost / numberOfUsers),2)
-            self.items[itemId] = newCostPerUser
-        else:
-            print("Item does not exist")
+        id = self.items.pop(itemId)
+        return id

@@ -1,6 +1,6 @@
 
 from AssignmentManager import AssignmentManager
-from ItemManager import ItemManager
+from ItemCostManager import ItemCostManager
 from UserManager import UserManager
 
 
@@ -40,7 +40,7 @@ def printUsers(manager:UserManager):
             print(user)
             print("\n")
 
-def printItems(manager:ItemManager):
+def printItems(manager:ItemCostManager):
     items = manager.getItems()
     if len(items) == 0:
         print("No items registered!")
