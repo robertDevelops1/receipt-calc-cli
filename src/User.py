@@ -15,4 +15,4 @@ class User:
         return self.total
 
     def __str__(self):
-        return self.name
+        return "ID:{0} Name:{1}".format(self.id,self.name)

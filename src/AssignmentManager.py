@@ -26,7 +26,9 @@ class AssignmentManager:
     def removeAssignment(self,user:User,item:Item):
         theAssignment = Assignment(user,item)
         keyCode = repr(theAssignment)
-        if keyCode in self.assignments:
-            del self.assignments[keyCode]
-        else:
-            print("Assignment does not exist")
+        # if keyCode in self.assignments:
+        #     del self.assignments[keyCode]
+        # else:
+        #     print("Assignment does not exist")
+        id = self.assignments.pop(keyCode)
+        return id
