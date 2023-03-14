@@ -14,17 +14,17 @@ class ItemCostManager:
 
     def addItem(self,item:Item):
         itemId = item.getId()
-        itemCost = item.getTotalCost()
+        itemCost = item.getItemCost()
         if itemId in self.items:
             numberOfUsers = round(itemCost / self.items[itemId]) + 1        # +1 user
             newCostPerUser = round((itemCost / numberOfUsers),2)
             self.items[itemId] = newCostPerUser
         else:
-            self.items[itemId] = itemCost       #cost per user of total cost
+            self.items[itemId] = itemCost       #cost per user of Item cost
 
     def removeItem(self,item:Item):
         itemId = item.getId()
-        itemCost = item.getTotalCost()
+        itemCost = item.getItemCost()
         if itemId in self.items:
             numberOfUsers = round(itemCost / self.items[itemId]) - 1        # -1 user
             newCostPerUser = round((itemCost / numberOfUsers),2)

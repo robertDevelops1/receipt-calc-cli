@@ -1,12 +1,13 @@
 from AssignmentManager import AssignmentManager
 from CLIHelper import *
+from Item import Item
 from ItemManager import ItemManager
 from ItemCostManager import ItemCostManager
 from User import User
 
 
 def addUser(userId, userManager:UserManager):
-    userName = input("Enter the item name:\n")
+    userName = input("Enter the user's name:\n")
     newUser = User(userId,userName)
     userManager.addUser(newUser)
 
@@ -16,12 +17,52 @@ def addItem(itemId, itemManager:ItemManager):
     validInput = False
     while(not validInput):
         itemCost = input("Enter the item cost:\n")
-        #check if two decimal points
-    itemTax = input("Enter item tax %:\n")
+        try:
+            try:
+                price = float(itemCost)            
+                floatSplit = itemCost.rsplit('.')
+                if ((len(floatSplit[-1]) <= 2)) :
+                    price = round(float(itemCost),2)
+                    validInput = True
+                else:
+                    print("Please enter a price up to 2 decimal points.")
+            except:
+                if itemCost == "q":
+                    validInput2 = False
+                    while(not validInput2):
+                        userInput = input("Cancel add item? (Y/N)\n").lower()
+                        if userInput == "y":
+                            return
+                        elif userInput == "n":
+                            validInput2 = True
+                print("Please enter a numeric value.")
+        except:
+            print("Try again.")
+    validInput = False
+    while(not validInput):
+        itemTax = input("Enter item tax %:\n")
+        try:
+            tax = float(itemTax)
+            if ((tax > 0) and (tax < 100)):
+                validInput = True
+            else:
+                print("Please enter a tax value between 0-100.")
+        except:
+            if itemTax == "q":
+                validInput2 = False
+                while(not validInput2):
+                    userInput = input("Cancel add item? (Y/N)\n").lower()
+                    if userInput == "y":
+                        return
+                    elif userInput == "n":
+                        validInput2 = True
+            print("Please enter a numeric value.")
+    newItem = Item(itemId,itemName,storeName,price,tax)
+    itemManager.addItem(newItem)
 
 def main():
     userManager = UserManager()
-    itemManager = ItemCostManager()
+    itemManager = ItemManager()
     assignmentManager = AssignmentManager()
     userId = 0
     itemId = 0
@@ -42,13 +83,15 @@ def main():
             addUser(userId, userManager)
             userId += 1
 
-        
+        elif userInput == "5":
+            addItem(itemId, itemManager)
+            itemId += 1
 
         elif userInput == "h":
             printHelp()
 
         userInput = input("\nEnter a command:\n")
-    print("Goodbye!")
+    print("\nGoodbye!")
     quit()
 
 

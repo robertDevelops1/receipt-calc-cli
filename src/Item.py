@@ -23,5 +23,5 @@ class Item:
         return self.tax
 
     def __str__(self):
-        string = "[ID:{0}  NAME:{1}  STORE:{2} ITEM COST:${3} TAX:{4}%]".format(self.id,self.name,self.store,self.itemCost,self.tax)
+        string = "[ID:{0}  Name:{1}  Store:{2}  Cost:${3}  Tax:{4}%]".format(self.id,self.name,self.store,self.itemCost,self.tax)
         return string
