@@ -15,5 +15,7 @@ class Assignment:
         return self.item
     
     def __repr__(self):
-        string = "u{0}i{1}".format(self.user.getId,self.item.getId)
+        userId = (self.user).getId()
+        itemId = (self.item).getId()
+        string = "u{0}i{1}".format(userId,itemId)
         return string

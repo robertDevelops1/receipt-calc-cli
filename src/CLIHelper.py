@@ -1,4 +1,4 @@
-
+from ReceiptCalc import *
 from AssignmentManager import AssignmentManager
 from ItemCostManager import ItemCostManager
 from UserManager import UserManager
@@ -49,14 +49,26 @@ def printItems(manager:ItemCostManager):
             print(user)
             print("\n")
 
-def printAssignments(manager:AssignmentManager):
-    assignments = manager.getAssignments()
+def printAssignments(userManager:UserManager,assignmentManager:AssignmentManager):
+    # assignments = manager.getAssignments()
+    # if len(assignments) == 0:
+    #     print("No assignments registered!")
+    # else:
+    #     for user in assignments.values():
+    #         print(user)
+    #         print("\n")
+    assignments = assignmentManager.getAssignments()
     if len(assignments) == 0:
         print("No assignments registered!")
     else:
-        for user in assignments.values():
-            print(user)
-            print("\n")
+        users = userManager.getUsers()
+        for user in users.values():
+            assignedItems = getAllItems(user,assignmentManager)
+            print(user.getName())
+            itemsString = ""
+            for item in assignedItems:
+                itemsString += str(item) + "\n"
+            print(itemsString)
 
 def printSummary():
     pass

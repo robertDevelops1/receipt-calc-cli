@@ -43,7 +43,7 @@ def addItem(itemId, itemManager:ItemManager):
         itemTax = input("Enter item tax %:\n")
         try:
             tax = float(itemTax)
-            if ((tax > 0) and (tax < 100)):
+            if ((tax >= 0) and (tax <= 100)):
                 validInput = True
             else:
                 print("Please enter a tax value between 0-100.")
@@ -60,9 +60,34 @@ def addItem(itemId, itemManager:ItemManager):
     newItem = Item(itemId,itemName,storeName,price,tax)
     itemManager.addItem(newItem)
 
+def addAssignment(assignmentManager:AssignmentManager, userManager:UserManager, itemManager:ItemManager, itemCostManager:ItemCostManager):
+    validInput = False
+    while (not validInput):
+        userId = int(input("Enter the User ID:\n"))
+        if userManager.hasUser(userId):
+            validInput = True
+        else:
+            print("Please enter a valid User ID")
+    validInput = False
+    while (not validInput):
+        itemId = int(input("Enter the Item ID:\n"))
+        if itemManager.hasItem(itemId):
+            validInput = True
+        else:
+            print("Please enter a valid Item ID")
+    assignmentCode = "u{0}i{1}".format(userId,itemId)
+    if assignmentManager.hasAssignment(assignmentCode):
+        print("Assignment already exists!")
+    else:
+        user = userManager.getUser(userId)
+        item = itemManager.getItem(itemId)
+        assignmentManager.addAssignment(user,item)
+        itemCostManager.addItem(item)
+
 def main():
     userManager = UserManager()
     itemManager = ItemManager()
+    itemCostManager = ItemCostManager()
     assignmentManager = AssignmentManager()
     userId = 0
     itemId = 0
@@ -77,7 +102,7 @@ def main():
             printItems(itemManager)
 
         elif userInput == "3":
-            printAssignments(assignmentManager)
+            printAssignments(userManager,assignmentManager)
 
         elif userInput == "4":
             addUser(userId, userManager)
@@ -87,6 +112,8 @@ def main():
             addItem(itemId, itemManager)
             itemId += 1
 
+        elif userInput == "6":
+            addAssignment(assignmentManager, userManager, itemManager, itemCostManager)
         elif userInput == "h":
             printHelp()
 

@@ -1,6 +1,6 @@
-import Assignment
-import Item
-import User
+from Assignment import Assignment
+from User import User
+from Item import Item
 
 
 class AssignmentManager:
@@ -32,3 +32,6 @@ class AssignmentManager:
         #     print("Assignment does not exist")
         id = self.assignments.pop(keyCode)
         return id
+    
+    def hasAssignment(self, keyCode:str):
+        return (keyCode in self.assignments)

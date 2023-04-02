@@ -21,3 +21,9 @@ class UserManager:
         userId = user.getId()
         id = self.users.pop(userId)
         return id
+    
+    def hasUser(self, userId:int):
+        return (userId in self.users)
+    
+    def getUser(self, userId:int):
+        return self.users.get(userId)

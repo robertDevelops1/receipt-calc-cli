@@ -16,7 +16,13 @@ class ItemManager:
             self.items[itemId] = item
             return itemId
         
-    def removeItem(self,item:Item):
+    def removeItem(self, item:Item):
         itemId = item.getId()
         id = self.items.pop(itemId)
         return id
+    
+    def hasItem(self, itemId:int):
+        return (itemId in self.items)
+    
+    def getItem(self, itemId:int):
+        return self.items.get(itemId)
