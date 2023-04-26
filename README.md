@@ -9,6 +9,7 @@ Run receipt-calc-cli/src/main.py
 
 # Upcoming
 Command line based input
+
 Refactor code for cleaner implementation and stronger adherence to OOD
 
 CSV support for pre-loading item data
